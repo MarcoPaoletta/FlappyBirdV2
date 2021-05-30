@@ -1,0 +1,117 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Background.tscn" type="PackedScene" id=1]
+[ext_resource path="res://HUD.tres" type="DynamicFont" id=2]
+[ext_resource path="res://icon.png" type="Texture" id=3]
+[ext_resource path="res://Marca de agua.png" type="Texture" id=4]
+[ext_resource path="res://Ground.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Lobby.gd" type="Script" id=6]
+[ext_resource path="res://LobbyMusic.tscn" type="PackedScene" id=7]
+
+[node name="Lobby" type="CanvasLayer"]
+script = ExtResource( 6 )
+
+[node name="Background" parent="." instance=ExtResource( 1 )]
+position = Vector2( -0.872803, 0 )
+
+[node name="FappyBirdV2" type="Label" parent="."]
+anchor_left = -0.0166667
+anchor_right = -0.0166667
+margin_left = 61.0
+margin_top = 48.0
+margin_right = 429.0
+margin_bottom = 99.0
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 1, 0.0235294, 0.0235294, 1 )
+custom_colors/font_outline_modulate = Color( 1, 1, 1, 1 )
+text = "FLAPPY BIRD V2"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Icon" type="Sprite" parent="."]
+position = Vector2( -3.9213, 110.155 )
+rotation = -0.13439
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 3 )
+centered = false
+
+[node name="YouTube" type="Sprite" parent="."]
+position = Vector2( 450, 128 )
+rotation = -0.541052
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 4 )
+
+[node name="Infinite" type="Button" parent="."]
+anchor_left = -0.0166667
+anchor_right = -0.0166667
+margin_left = 120.54
+margin_top = 200.54
+margin_right = 352.54
+margin_bottom = 274.54
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0.752941, 0.113725, 0.772549, 1 )
+custom_colors/font_color_pressed = Color( 0.752941, 0.113725, 0.772549, 1 )
+text = "Infinite"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Level" type="Button" parent="."]
+anchor_left = -0.0166667
+anchor_right = -0.0166667
+margin_left = 120.54
+margin_top = 288.54
+margin_right = 352.54
+margin_bottom = 362.54
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0.133333, 0.188235, 0.537255, 1 )
+custom_colors/font_color_pressed = Color( 0.133333, 0.188235, 0.537255, 1 )
+text = "Level"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Help" type="Button" parent="."]
+anchor_left = -0.0166667
+anchor_right = -0.0166667
+margin_left = 120.54
+margin_top = 376.54
+margin_right = 352.54
+margin_bottom = 450.54
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0.101961, 0.854902, 0.32549, 1 )
+custom_colors/font_color_pressed = Color( 0.101961, 0.854902, 0.32549, 1 )
+text = "Help"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Quit" type="Button" parent="."]
+anchor_left = -0.0166667
+anchor_right = -0.0166667
+margin_left = 120.54
+margin_top = 463.54
+margin_right = 352.54
+margin_bottom = 537.54
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0.780392, 0.862745, 0.054902, 0.996078 )
+custom_colors/font_color_pressed = Color( 0.780392, 0.862745, 0.054902, 0.996078 )
+text = "Quit"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Ground" parent="." instance=ExtResource( 5 )]
+position = Vector2( -6.586, 645.241 )
+
+[node name="LobbyMusic" parent="." instance=ExtResource( 7 )]
+[connection signal="pressed" from="Infinite" to="." method="_on_Infinite_pressed"]
+[connection signal="pressed" from="Level" to="." method="_on_Level_pressed"]
+[connection signal="pressed" from="Help" to="." method="_on_Help_pressed"]
+[connection signal="pressed" from="Quit" to="." method="_on_Quit_pressed"]
